@@ -159,6 +159,7 @@ print(f'fruits[3:]: {fruits[3:]}')    # ('watermelon', 'peach')
 colors = ('Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Purple')
 
 # Orange -> 오렌지
+
 # colors[1] = '오렌지'  -> TypeError
 colors = list(colors)
 print(f'colors type:{type(colors)}')

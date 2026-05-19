@@ -208,8 +208,20 @@
 
 
 
+# Q) 학생 이름과 점수를 매개변수로 받아
+# 90점 이상이면 "A",
+# 80점 이상이면 "B",
+# 그 외는 "C"를 출력하는 함수를 작성하세요
 
+def grade(name, score):
+    if score >= 90:
+        print(f'{name}:A')  
 
-   
+    elif score >= 80:
+        print(f'{name}:B')
+    
+    else:
+        print(f'{name}:C')
 
+grade("지훈", 50)
  

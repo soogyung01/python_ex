@@ -90,3 +90,6 @@ a, b, *c = scores
 print(f'a: {a}')
 print(f'b: {b}')
 print(f'c: {c}')
+
+
+

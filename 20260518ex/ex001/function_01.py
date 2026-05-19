@@ -22,7 +22,7 @@ def chocopiPrice():
     totalPrice += goods["초코파이"] * chocopis
     print(f'초코파이 구매 개수\t: {goods["초코파이"] * chocopis}원')
 
-def matdongsanPrice():
+def matdongsanPrice():  
     global totalPrice
     totalPrice += goods["맛동산"] * matdongsans
     print(f'맛동산 구매 개수\t: {goods["맛동산"] * matdongsans}원')
@@ -43,3 +43,8 @@ chocopiPrice()
 matdongsanPrice()
 print("=" * 40)
 print(f'총 구매 금액\t\t: {totalPrice}원')
+
+
+# global 키워드_함수 내부에서 전역변수를 수정하고 싶을 때 사용합니다.
+# 전역변수_ 프로그램 전체에서 사용할 수 있는 변수
+# 지역변수_ 특정 함수 안에서만 사용할 수 있는 변수

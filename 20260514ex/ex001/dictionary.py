@@ -50,6 +50,78 @@
 # print(dicts['hobby'][1])
 
 
+# 딕셔너리 조회/삽입/수정/삭제
+'''
+컴퓨터 프로그램에서 '조회/삽입/수정/삭제'를 CRUD라고 합니다.
+CRUD라는 용어는 개발자라면 반드시 알고 있어야 합니다.
+CRUD는 Create, Read, Update, Delete를 말합니다.
+즉, 데이터를 생성(Create), 조회(Read), 수정(Update), 삭제(Delete) 하는 것을 말합니다.
+그렇다면 딕셔너리에서 CRUD는 딕셔너리 컨테이너 자료형에
+데이터를 생성(Create), 조회(Read), 수정(Update), 삭제(Delete) 하는 것을 말할 것 입니다.
+CRUD는 프로그램 뿐만 아니라 데이터베이스에서도 사용되는 용어 입니다.
+'''
+
+# 추가(Create)
+dicContainer = {
+    '이름': '홍길동',
+    '나이': 25,
+    '주소': '대전 중구',
+    '취미': ['축구','수영','조깅'],
+    '몸무게': 87.5
+}
+
+print(f'dicContainer: {dicContainer}')
+
+# 새로운 내용 추가시: 
+# dicContainer[키] = 밸류
+
+dicContainer['연락처'] = '010-1234-5678'
+print(f'dicContainer: {dicContainer}')
+
+# 조회(Read)
+# dicContainer[키]
+
+print(f'이름: {dicContainer['이름']}')
+
+# 수정(Update)
+# dicContainer[키] = 밸류
+
+dicContainer['몸무게'] = 50
+print(f'몸무게: {dicContainer['몸무게']}')
+
+'''
+기존 키 값이 존재하지 않으면 생성, 존재하면 수정!
+'''
+
+# 삭제(Delete)
+del dicContainer['몸무게']
+print(f'dicContainer: {dicContainer}')
+
+# 부가 기능들
+# 아이템 개수 조회
+print(f'아이템 개수: {len(dicContainer)}')
+
+# 전체 키 & 밸류를 조회
+# 전체 키
+dicKeys = dicContainer.keys()
+print(f'dicKeys: {dicKeys}')
+
+for key in dicKeys:
+    print(f'{key}: {dicContainer[key]}')
+
+# 밸류
+dicValues = dicContainer.values()
+print(f'dicValues: {dicValues}')
+
+# 키와 밸류를 한방에 조회
+for key, value in dicContainer.items():
+    print(f'{key}: {value}')
+
+# print(dicContainer.items())
+# print(type(dicContainer.items()))
+
+
+
 # 중간고사 성적 관리 프로그램 만들기
 '''
 아래 시나리오를 기반으로 딕셔너리를 이용해서 중간고사 성적 관리 프로그램을 만들어봅시다.
@@ -125,3 +197,4 @@ C+      : 2.5
 C       : 2.0
 F       : 0.0
 '''
+
