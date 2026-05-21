@@ -267,44 +267,44 @@
 # '4.모든 회원 정보 출력'을 선택하면 가입되어 있는 모든 회원 정보를 출력한다.
 # '99.종료'을 선택하면 프로그램을 종료 시킨다.
 
-num = int(input('1.회원가입  2.로그인  3.특정 회원 정보 출력  4.모든 회원 정보 출력  99.종료'))
+# num = int(input('1.회원가입  2.로그인  3.특정 회원 정보 출력  4.모든 회원 정보 출력  99.종료'))
 
 
-memberList = []
-list = []
+# memberList = []
+# list = []
 
-def nums():
-    id = input('ID를 입력하세요.')  
-    pw = input('PW를 입력하세요.')
-    email = input('Email을 입력하세요.')
-    phone = input('Phone를 입력하세요.')
-    list = {'id': {id}, 'pw': {pw}, 'email': {email}, 'phone': {phone} } 
-    memberList.append(list)
-    print(f'list: {list}')
-    print(f'memberList: {memberList}')
-
-
-if num == 1:
-    nums()
-elif num == 2:
-    for list in list:
-        id = input('ID를 입력하세요.')
-        if id == list[0]:
-            pw = input('PW를 입력하세요.')
-            if pw == list[1]:
-                print('로그인성공')
-            else:
-                print('로그인실패')    
-        else:
-                print('로그인실패')        
+# def nums():
+#     id = input('ID를 입력하세요.')  
+#     pw = input('PW를 입력하세요.')
+#     email = input('Email을 입력하세요.')
+#     phone = input('Phone를 입력하세요.')
+#     list = {'id': {id}, 'pw': {pw}, 'email': {email}, 'phone': {phone} } 
+#     memberList.append(list)
+#     print(f'list: {list}')
+#     print(f'memberList: {memberList}')
 
 
-elif num == 3:
-    pass
-elif num == 4:
-    pass
-elif num == 99:
-    print('프로그램을 종료합니다.')
+# if num == 1:
+#     nums()
+# elif num == 2:
+#     for list in list:
+#         id = input('ID를 입력하세요.')
+#         if id == list[0]:
+#             pw = input('PW를 입력하세요.')
+#             if pw == list[1]:
+#                 print('로그인성공')
+#             else:
+#                 print('로그인실패')    
+#         else:
+#                 print('로그인실패')        
+
+
+# elif num == 3:
+#     pass
+# elif num == 4:
+#     pass
+# elif num == 99:
+#     print('프로그램을 종료합니다.')
     
 
 # id, pw, email, phone
