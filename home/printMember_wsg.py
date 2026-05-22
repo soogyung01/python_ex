@@ -22,7 +22,7 @@
 
 # '0.' '종료'를 선택하면 프로그램을 종료시킨다.
 
-SIGN_UP = 1 
+SIGN_UP = 1
 SIGN_IN = 2
 PRINT_MY_INFO = 3
 PRINT_ALL_MEMBER_INFO = 4
@@ -36,17 +36,18 @@ signInCount = 1
 DEV_MOD = True
 members = {}
 
+
 if DEV_MOD:
     uIds = ['gildong', 'chanho', 'saeri']
     uPws = ['1234', '5678', '9012']
     uMails = ['gildong@gmail.com', 'chanho@naver.com', 'saeri@daum.com']
-    uphones = ['010-1234-5678', '010-9999-8888', '010-7777-6666']
+    uPhones = ['010-1234-5678', '010-9999-8888', '010-7777-6666']
     for n in range(len(uIds)):
         members[uIds[n]] = {
             'uId': uIds[n],
             'uPw': uPws[n],
             'uMail': uMails[n],
-            'uPhone': uphones[n]
+            'uPhone': uPhones[n]
         }
 
 def getSelectedMenuNum():
@@ -61,97 +62,72 @@ flag = True
 while flag:    
     userSelectedMenuNum = getSelectedMenuNum()
     
-    if userSelectedMenuNum == SIGN_UP:
-        print('\n--- 회원 가입 메뉴입니다. ---')
-
-        while True:
-             uId= input('사용하실 ID를 입력해주세요: ').strip() 
+    if userSelectedMenuNum == PRINT_MY_INFO:
+         signInCount = 0
+         while True:
+             uId = input('Input member ID: ')
+             uPw = input('Input member PW: ') 
+  
              if uId in members:
-                uInfo = members[uId]
-                print("이미 존재하는 ID입니다. 다시 입력해주세요.")
-             else:
-                break
-             
-        uPw = input('사용하실 Pw를 입력해주세요: ').strip()
+                 uInfo = members[uId]
 
-        while True:
-             uMail = input('Email을 입력해주세요: ').strip()
-             if uId in members:
-                 uInfo = members[uMail]
-                 print("이미 등록된 Email입니다. 다시 입력해주세요.")
-             else:
-                 break
-             
-        while True:
-             uPhone = input('휴대전화번호를 입력해주세요: ').strip()
-             if uId in members:
-                 uInfo = members[uPhone]
-                 print("이미 등록된 휴대전화번호입니다. 다시 입력해주세요.")
-             else:
-                 break
-             
-        members.append({'uId': uId , 'uPw': uPw, 'uMail': uMail, 'uPhone': uPhone})
-        print(f"회원가입이 성공적으로 완료되었습니다! (현재 회원 수: {len(members)}명)")
-        print("\n[현재 전체 회원 목록]")
-        for member in members:
-            print(member)
+                 if uInfo['uPw'] == uPw:
+                     print('SIGN_IN SUCCESS!')
+                     print('-' * 30)  
 
-
-    elif userSelectedMenuNum == PRINT_MY_INFO:
-         uId = input('Input member ID: ')
-         uPw = input('Input member PW: ') 
-
-         if uId in members:
-             uInfo = members[uId]
-
-             if uInfo['uPw'] == uPw:
-                 print('SIGN_IN SUCCESS!')
-                 print('-' * 30)          
-
-                 for key, value in uInfo.items():
-                     print(f'{key}: {value}')
-                 print('-' * 30)
-                 updateInfo = int(input('1.아이디 변경  2.비밀번호 변경  3.이메일 변경  4.번호 변경  0.종료'))
+                     for key, value in uInfo.items():
+                         print(f'{key}: {value}')
+                     print('-' * 30)
+                     updateInfo = int(input('1.아이디 변경  2.비밀번호 변경  3.이메일 변경  4.번호 변경  0.종료'))
                  
-                 if updateInfo == 1:
-                    updateId =  input('변경할 아이디 입력: ')
-                    members[updateId] = members.pop(uId)
-                    members[updateId]['uId'] = updateId
-                    print('아이디가 변경되었습니다.')
-                    
-                 elif updateInfo == 2:
-                     updatePw =  input('변경할 비밀번호 입력: ')
-                     members[uId]['uPw'] = updatePw
-                     print('비밀번호가 변경되었습니다.')
-                     
-                 elif updateInfo == 3:
-                     updateMail =  input('변경할 이메일 입력: ')
-                     members[uId]['uMail'] = updateMail
-                     print('이메일이 변경되었습니다.')
+                     if updateInfo == 1:
+                        updateId =  input('변경할 아이디 입력: ')
+                        members[updateId] = members.pop(uId)
+                        members[updateId]['uId'] = updateId
+                        print('아이디가 변경되었습니다.')
 
-                    
-                 elif updateInfo == 4:
-                     updatePhone =  input('변경할 번호 입력: ')
-                     members[uId]['uPhone'] = updatePhone
-                     print('번호가 변경되었습니다.')
-                   
-                 elif updateInfo == 0:
-                     break
-                 
+                     elif updateInfo == 2:
+                         updatePw =  input('변경할 비밀번호 입력: ')
+                         members[uId]['uPw'] = updatePw
+                         print('비밀번호가 변경되었습니다.')
+
+                     elif updateInfo == 3:
+                         updateMail =  input('변경할 이메일 입력: ')
+                         members[uId]['uMail'] = updateMail
+                         print('이메일이 변경되었습니다.')
+
+                     elif updateInfo == 4:
+                         updatePhone =  input('변경할 번호 입력: ')
+                         members[uId]['uPhone'] = updatePhone
+                         print('번호가 변경되었습니다.')
+
+                     elif updateInfo == 0:
+                         break
+
+                 else:
+                     print('SIGN_IN FAIL!')
+                     signInCount += 1
+
+                     if signInCount >= 3:
+                        print('3회 이상 틀렸어요!')
+                        break  
+
              else:
-                 print('SIGN_IN FAIL!') 
+                 print('존재 하지 않은 ID입니다. 다시 확인하세요')
+                 signInCount += 1
 
-         else:
-             print('존재 하지 않은 ID입니다. 다시 확인하세요')
+                 if signInCount >= 3:
+                        print('3회 이상 틀렸어요!')
+                        break
     
     elif userSelectedMenuNum == PRINT_ALL_MEMBER_INFO:
         #  로그인 후 정보 확인 할 수 있도록 변경하기
-         signInCount = 0 
+         signInCount = 0
 
          while True:
             uId = input('Input member ID: ')
             uPw = input('Input member PW: ')
-            
+
             if uId in members:
                 uInfo = members[uId]
 
@@ -166,18 +142,17 @@ while flag:
 
                     if signInCount >= 3:
                         print('3회 이상 틀렸어요!')
-                        break  
+                        break    
 
             else:
                 print('존재 하지 않은 ID입니다. 다시 확인하세요')
                 signInCount += 1
 
                 if signInCount >= 3:
-                    print('3회 이상 틀렸어요!')
-                    break
-
-         if loginSuccess:
-             
+                        print('3회 이상 틀렸어요!')
+                        break
+         if loginSuccess:       
+                
              for key, value in members.items():
                  print(f'------{key}님의 정보----------')
                  printAllMemberInfo(value)         
