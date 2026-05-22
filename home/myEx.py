@@ -213,15 +213,14 @@
 # 80점 이상이면 "B",
 # 그 외는 "C"를 출력하는 함수를 작성하세요
 
-def grade(name, score):
-    if score >= 90:
-        print(f'{name}:A')  
+# def grade(name, score):
+#     if score >= 90:
+#         print(f'{name}:A')  
 
-    elif score >= 80:
-        print(f'{name}:B')
+#     elif score >= 80:
+#         print(f'{name}:B')
     
-    else:
-        print(f'{name}:C')
+#     else:
+#         print(f'{name}:C')
 
-grade("지훈", 50)
- 
+# grade("지훈", 50)
